@@ -18,8 +18,8 @@ else
   REMOTE_BRANCH="gh-pages"
 fi && \
 git init && \
-git config user.name "${GITHUB_ACTOR}" && \
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
+git config user.name "${GH_COMMITTER:-$GITHUB_ACTOR}" && \
+git config user.email "${GH_COMMITTER:-$GITHUB_ACTOR}@users.noreply.github.com" && \
 if [ -z "$(git status --porcelain)" ]; then
     echo "Nothing to commit" && \
     exit 0
